@@ -1,329 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Rory Wang | Academic Profile</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    :root{
-      --text:#222;
-      --muted:#555;
-      --border:#e6e6e6;
-      --bg:#ffffff;
-      --nav-bg:rgba(255,255,255,0.92);
-      --chip:#f4f4f5;
-      --chip-hover:#ededf0;
-      --chip-active:#e9eaee;
-      --shadow: 0 6px 22px rgba(0,0,0,0.06);
-      --radius: 14px;
-      --maxw: 900px;
-      --nav-h: 72px;
-    }
-
-    html{
-      scroll-behavior:smooth;
-      scroll-padding-top: calc(var(--nav-h) + 20px);
-    }
-
-    body{
+    body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Helvetica, sans-serif;
-      line-height: 1.7;
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 0 24px 64px;
-      color: var(--text);
-      background-color: var(--bg);
+      line-height: 1.65;
+      max-width: 900px;
+      margin: 48px auto;
+      padding: 0 24px;
+      color: #222;
+      background-color: #ffffff;
     }
 
-    /* Top nav (sticky) */
-    .topbar{
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+    nav {
+      margin-bottom: 3em;
     }
 
-    .navwrap{
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 14px 24px;
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      overflow-x:auto;
-      -webkit-overflow-scrolling: touch;
+    nav a {
+      margin-right: 1.2em;
+      text-decoration: none;
+      color: #444;
+      font-weight: 500;
     }
 
-    .navwrap::-webkit-scrollbar{ height: 6px; }
-    .navwrap::-webkit-scrollbar-thumb{ background:#d9d9de; border-radius: 999px; }
-
-    .nav{
-      display:flex;
-      gap: 10px;
-      align-items:center;
-      white-space: nowrap;
+    nav a:hover {
+      text-decoration: underline;
     }
 
-    .nav a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: var(--chip);
-      color: #333;
-      text-decoration:none;
-      font-size: 0.98em;
-      transition: background 140ms ease, transform 140ms ease;
-    }
-
-    .nav a:hover{
-      background: var(--chip-hover);
-      transform: translateY(-1px);
-    }
-
-    .nav a.active{
-      background: var(--chip-active);
-      font-weight: 600;
-    }
-
-    /* Page header */
-    .page{
-      padding-top: 40px;
-    }
-
-    h1{
+    h1 {
       font-size: 2.3em;
-      font-weight: 650;
-      margin: 0 0 10px;
-      letter-spacing: -0.01em;
+      font-weight: 600;
+      margin-bottom: 0.3em;
     }
 
-    .subtitle{
-      color: var(--muted);
-      margin: 0 0 22px;
-      font-size: 1.02em;
-      line-height: 1.6;
+    .subtitle {
+      color: #555;
+      margin-bottom: 2.5em;
+      font-size: 1em;
     }
 
-    h2{
-      margin-top: 2.4em;
+    h2 {
+      margin-top: 2.6em;
       font-size: 1.35em;
-      font-weight: 650;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.35em;
+      font-weight: 600;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.3em;
     }
 
-    h3{
-      margin-top: 1.6em;
-      font-size: 1.1em;
-      font-weight: 650;
-      color: #333;
-    }
-
-    p{
+    p {
       margin: 1.1em 0;
       font-size: 1em;
     }
 
-    ul{
-      margin: 0.9em 0 0.3em 1.2em;
-      padding: 0;
+    ul {
+      margin-left: 1.2em;
     }
 
-    li{
-      margin-bottom: 1.05em;
+    li {
+      margin-bottom: 1.2em;
     }
 
-    em{
+    em {
       color: #444;
     }
-
-    a{
-      color:#1a73e8;
-    }
-
-    /* Small badge row (optional) */
-    .badges{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      padding: 7px 10px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      font-size: 0.92em;
-      color:#333;
-      background:#fff;
-    }
-
-    /* Footer note */
-    .foot{
-      margin-top: 2.8em;
-      padding-top: 1.4em;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.95em;
-    }
   </style>
-
-  <script>
-    // Highlight active nav item while scrolling (simple + reliable)
-    document.addEventListener("DOMContentLoaded", () => {
-      const links = Array.from(document.querySelectorAll(".nav a"));
-      const sections = links
-        .map(a => document.querySelector(a.getAttribute("href")))
-        .filter(Boolean);
-
-      const setActive = (id) => {
-        links.forEach(a => {
-          const isActive = a.getAttribute("href") === "#" + id;
-          a.classList.toggle("active", isActive);
-        });
-      };
-
-      const obs = new IntersectionObserver((entries) => {
-        const visible = entries
-          .filter(e => e.isIntersecting)
-          .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible && visible.target && visible.target.id) {
-          setActive(visible.target.id);
-        }
-      }, { root: null, threshold: [0.18, 0.25, 0.35, 0.5] });
-
-      sections.forEach(sec => obs.observe(sec));
-
-      // default active
-      if (sections[0] && sections[0].id) setActive(sections[0].id);
-    });
-  </script>
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="navwrap">
-      <nav class="nav" aria-label="Section navigation">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#activities">Activities</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </div>
 
-  <main class="page">
-    <h1>Rory Wang</h1>
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#activities">Activities</a>
+    <a href="#contact">Contact</a>
+    <a href="Resume-Rory-Wang.pdf" target="_blank">CV</a>
+  </nav>
 
-    <p class="subtitle">
-      Undergraduate · University of California, Davis<br>
-      Neurobiology, Physiology & Behavior<br>
-      Music
-    </p>
+  <!-- Header -->
+  <h1>Rory Wang</h1>
 
-    <div class="badges" aria-label="Key tags">
-      <span class="badge">Neuron-centered neuroscience</span>
-      <span class="badge">Pre-med</span>
-      <span class="badge">Neural systems & physiology</span>
-    </div>
+  <p class="subtitle">
+    Undergraduate · University of California, Davis<br>
+    Neurobiology, Physiology & Behavior<br>
+    Music
+  </p>
 
-    <section id="about">
-      <h2>About</h2>
+  <!-- About -->
+  <h2 id="about">About</h2>
 
-      <p>
-        I am an undergraduate student at the University of California, Davis, pursuing a double major in
-        Neurobiology, Physiology & Behavior and Music. I am on a neuron-centered neuroscience track, with primary
-        academic interests in understanding neural systems at the neuronal and circuit levels and how neural activity
-        gives rise to physiological function.
-      </p>
+  <p>
+    I am an undergraduate student at the University of California, Davis, pursuing a double major
+    in Neurobiology, Physiology & Behavior and Music. I am on a neuron-centered neuroscience track,
+    with primary academic interests in understanding neural systems at the neuronal and circuit
+    levels and how neural activity gives rise to physiological function.
+  </p>
 
-      <p>
-        As a pre-med student, I approach neuroscience not only as an intellectual pursuit, but also as a discipline
-        closely connected to human health and clinical reality. This perspective motivates my focus on mechanisms that
-        bridge neural activity and physiological function, while maintaining a long-term interest in translational
-        relevance.
-      </p>
+  <p>
+    As a pre-med student, I approach neuroscience not only as an intellectual pursuit, but also as a
+    discipline closely connected to human health and clinical reality. This perspective motivates my
+    focus on mechanisms that bridge neural activity and physiological function, while maintaining a
+    long-term interest in translational relevance.
+  </p>
 
-      <p>
-        Alongside my core academic training in neuroscience, I maintain a sustained engagement with music as a parallel
-        discipline. This background informs how I think about human experience and expression, but my academic and
-        research trajectory is firmly grounded in neuroscience and neural systems.
-      </p>
-    </section>
+  <p>
+    Alongside my core academic training in neuroscience, I maintain a sustained engagement with
+    music as a parallel discipline. This background informs how I think about human experience and
+    expression, while my academic and research trajectory remains firmly grounded in neuroscience
+    and neural systems.
+  </p>
 
-    <section id="research">
-      <h2>Research</h2>
+  <!-- Research -->
+  <h2 id="research">Research</h2>
 
-      <h3>Current Research</h3>
-      <ul>
-        <li>
-          Research assistant in the Cameron Sadegh Lab at UC Davis, focusing on neuron- and circuit-level neuroscience
-          questions and their connections to physiological function.
-        </li>
-      </ul>
+  <ul>
+    <li>
+      <strong>Current Research.</strong>
+      Research assistant in a neuroscience laboratory, focusing on neuron-centered questions
+      in neural systems and physiology, with emphasis on neuronal and circuit-level mechanisms.
+    </li>
 
-      <h3>Past Research Experience</h3>
-      <ul>
-        <li>
-          Prior research experience in neurodegenerative disease mechanisms, with a focus on Alzheimer’s disease and the role of
-          microglia in neural pathology. This work examined cellular stress responses, including endoplasmic reticulum stress,
-          oxidative stress, autophagic–lysosomal pathways, and neuroinflammation, and resulted in a conference paper presentation.
-          <br>
-          <em>
-            “Different Roles of Microglia in Alzheimer’s Disease,” International Conference on Biological Engineering and Medical Science (ICBioMed), 2023.
-          </em>
-        </li>
+    <li>
+      <strong>Past Research Experience.</strong>
+      Prior experience in computational and engineering-oriented neuroscience (dry lab),
+      involving data analysis and modeling approaches. This work has concluded and helped
+      clarify my preference for biologically grounded, neuron-focused research.
+    </li>
 
-        <li>
-          Additional completed, engineering-leaning dry-lab experience involving computational or data-driven approaches in a research setting.
-          This project has concluded, and my current focus is firmly centered on neuron- and circuit-level neuroscience.
-        </li>
-      </ul>
-    </section>
+    <li>
+      <strong>Early Research Experience.</strong>
+      Research on neurodegenerative disease mechanisms, focusing on Alzheimer’s disease and
+      the role of microglia in neural pathology. Topics included endoplasmic reticulum stress,
+      oxidative stress, autophagic–lysosomal pathways, and neuroinflammation.
+      <br>
+      <em>
+        “Different Roles of Microglia in Alzheimer’s Disease,”
+        International Conference on Biological Engineering and Medical Science (ICBioMed), 2023.
+      </em>
+    </li>
+  </ul>
 
-    <section id="activities">
-      <h2>Activities</h2>
+  <!-- Activities -->
+  <h2 id="activities">Activities</h2>
 
-      <p>
-        I value balanced development as an undergraduate, and I stay engaged in activities that reinforce communication,
-        leadership, and sustained commitment alongside research training.
-      </p>
+  <ul>
+    <li>
+      Long-term training and performance in music, alongside academic coursework, reflecting
+      sustained engagement with artistic practice and interdisciplinary perspectives.
+    </li>
 
-      <ul>
-        <li>
-          Music performance and long-term instrumental training, with ongoing involvement in performance-oriented projects.
-        </li>
-        <li>
-          Campus and community engagement through student activities and volunteering.
-        </li>
-      </ul>
+    <li>
+      Active involvement in laboratory meetings, literature discussion, and academic mentoring
+      environments as part of undergraduate research training.
+    </li>
+  </ul>
 
-      <p>
-        If you want this section to be highly specific (and more impressive), paste your newest resume’s activities text and I will rewrite
-        these bullets to match your real roles precisely.
-      </p>
-    </section>
+  <!-- Contact -->
+  <h2 id="contact">Contact</h2>
 
-    <section id="contact">
-      <h2>Contact</h2>
+  <p>
+    Email:
+    <a href="mailto:yfnwang@ucdavis.edu">yfnwang@ucdavis.edu</a>
+  </p>
 
-      <p>
-        Email: <a href="mailto:yfnwang@ucdavis.edu">yfnwang@ucdavis.edu</a>
-      </p>
-    </section>
-
-    <div class="foot">
-      <p>
-        This site is intentionally designed as a long-term academic name card: concise, stable, and easy to share.
-      </p>
-    </div>
-  </main>
 </body>
 </html>
