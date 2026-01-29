@@ -18,16 +18,22 @@
       background-repeat: repeat;
       background-blend-mode: multiply;
     }
-
     /* ---------- Navigation ---------- */
     nav {
       position: sticky;
       top: 0;
+      width: 100%;
       background-color: #ffffff;
       border-bottom: 1px solid #e0e0e0;
       padding: 16px 0;
       margin-bottom: 40px;
       z-index: 100;
+    }
+    
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
 
     nav a {
@@ -36,10 +42,11 @@
       color: #555;
       font-weight: 500;
     }
-
     nav a:hover {
       color: #000;
     }
+
+
 
     /* ---------- Typography ---------- */
     h1 {
