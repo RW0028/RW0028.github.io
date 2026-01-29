@@ -1,63 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Rory Wang | Academic Profile</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Helvetica, sans-serif;
       line-height: 1.65;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 24px 48px;
+      margin: 0;
       color: #222;
-      background-color: #ffffff;
+
+      /* Paper-like warm background */
+      background-color: #faf8f3;
       background-image: url("paper-texture.png");
       background-repeat: repeat;
+      background-size: 600px auto;
       background-blend-mode: multiply;
     }
-    /* ---------- Navigation ---------- */
+
+    /* ---------- Navigation (full width) ---------- */
     nav {
       position: sticky;
       top: 0;
       width: 100%;
-      background-color: #ffffff;
-      border-bottom: 1px solid #e0e0e0;
-      padding: 16px 0;
-      margin-bottom: 40px;
+      background-color: rgba(250, 248, 243, 0.92);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
       z-index: 100;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
-    
+
     .nav-inner {
       max-width: 900px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 14px 24px;
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     nav a {
-      margin-right: 24px;
       text-decoration: none;
       color: #555;
       font-weight: 500;
+      padding: 6px 0;
     }
+
     nav a:hover {
       color: #000;
     }
 
-
+    /* ---------- Page container (centered content) ---------- */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px 24px 60px;
+    }
 
     /* ---------- Typography ---------- */
     h1 {
       font-size: 2.3em;
       font-weight: 600;
-      margin-bottom: 0.25em;
+      margin: 0 0 0.25em;
     }
 
     .subtitle {
       color: #555;
-      margin-bottom: 2em;
+      margin: 0 0 2em;
       font-size: 1em;
     }
 
@@ -65,7 +81,7 @@
       margin-top: 3em;
       font-size: 1.35em;
       font-weight: 600;
-      border-bottom: 1px solid #e0e0e0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.10);
       padding-bottom: 0.3em;
     }
 
@@ -82,6 +98,7 @@
 
     ul {
       margin-left: 1.2em;
+      padding-left: 0.3em;
     }
 
     li {
@@ -91,123 +108,129 @@
     em {
       color: #444;
     }
+
+    /* Small visual polish for links in content */
+    a {
+      color: #2b5a8a;
+    }
+    a:hover {
+      color: #1f4164;
+    }
   </style>
 </head>
 
 <body>
-
   <!-- Navigation -->
   <nav>
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#activities">Activities</a>
-    <a href="#contact">Contact</a>
-    <a href="Rory_Wang_CV.pdf" target="_blank">CV</a>
+    <div class="nav-inner">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#activities">Activities</a>
+      <a href="#contact">Contact</a>
+      <a href="Rory_Wang_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </div>
   </nav>
 
-  <!-- Header -->
-  <h1>Rory Wang</h1>
+  <!-- Main content -->
+  <div class="container">
+    <h1>Rory Wang</h1>
 
-  <p class="subtitle">
-    Undergraduate · University of California, Davis<br>
-    Neurobiology, Physiology & Behavior<br>
-    Music
-  </p>
+    <p class="subtitle">
+      Undergraduate · University of California, Davis<br>
+      Neurobiology, Physiology &amp; Behavior<br>
+      Music
+    </p>
 
-  <!-- About -->
-  <h2 id="about">About</h2>
+    <h2 id="about">About</h2>
 
-  <p>
-    I am an undergraduate student at the University of California, Davis,
-    pursuing a double major in Neurobiology, Physiology & Behavior and Music.
-    I am on a neuron-centered neuroscience track, with primary academic interests
-    in understanding neural systems at the neuronal and circuit levels and how
-    neural activity gives rise to physiological function.
-  </p>
+    <p>
+      I am an undergraduate student at the University of California, Davis,
+      pursuing a double major in Neurobiology, Physiology &amp; Behavior and Music.
+      I am on a neuron-centered neuroscience track, with primary academic interests
+      in understanding neural systems at the neuronal and circuit levels and how
+      neural activity gives rise to physiological function.
+    </p>
 
-  <p>
-    As a pre-med student, I approach neuroscience not only as an intellectual pursuit,
-    but also as a discipline closely connected to human health and clinical reality.
-    This perspective motivates my focus on mechanisms that bridge neural activity
-    and physiological function, while maintaining a long-term interest in translational
-    relevance.
-  </p>
+    <p>
+      As a pre-med student, I approach neuroscience not only as an intellectual pursuit,
+      but also as a discipline closely connected to human health and clinical reality.
+      This perspective motivates my focus on mechanisms that bridge neural activity
+      and physiological function, while maintaining a long-term interest in translational
+      relevance.
+    </p>
 
-  <p>
-    Alongside my core academic training in neuroscience, I maintain a sustained engagement
-    with music as a parallel discipline. This background informs how I think about human
-    experience and expression, but my academic and research trajectory is firmly grounded
-    in neuroscience and neural systems.
-  </p>
+    <p>
+      Alongside my core academic training in neuroscience, I maintain a sustained engagement
+      with music as a parallel discipline. This background informs how I think about human
+      experience and expression, but my academic and research trajectory is firmly grounded
+      in neuroscience and neural systems.
+    </p>
 
-  <!-- Research -->
-  <h2 id="research">Research</h2>
+    <h2 id="research">Research</h2>
 
-  <h3>Current Research</h3>
-  <ul>
-    <li>
-      Research assistant in a neuroscience laboratory at UC Davis, focusing on neural
-      systems and physiology-related questions with an emphasis on neuronal-level mechanisms,
-      including literature review and neural signal analysis.
-    </li>
-  </ul>
+    <h3>Current Research</h3>
+    <ul>
+      <li>
+        Research assistant in a neuroscience laboratory at UC Davis, focusing on neural
+        systems and physiology-related questions with an emphasis on neuronal-level mechanisms,
+        including literature review and neural signal analysis.
+      </li>
+    </ul>
 
-  <h3>Past Research Experience</h3>
-  <ul>
-    <li>
-      Prior research experience in neurodegenerative disease mechanisms, with a focus on
-      Alzheimer’s disease and the role of microglia in neural pathology. This work examined
-      cellular stress responses, including endoplasmic reticulum stress, oxidative stress,
-      autophagic–lysosomal pathways, and neuroinflammation, and resulted in a conference
-      paper presentation.
-      <br>
-      <em>
-        “Different Roles of Microglia in Alzheimer’s Disease,” International Conference on
-        Biological Engineering and Medical Science (ICBioMed), 2023.
-      </em>
-    </li>
+    <h3>Past Research Experience</h3>
+    <ul>
+      <li>
+        Prior research experience in neurodegenerative disease mechanisms, with a focus on
+        Alzheimer’s disease and the role of microglia in neural pathology. This work examined
+        cellular stress responses, including endoplasmic reticulum stress, oxidative stress,
+        autophagic–lysosomal pathways, and neuroinflammation, and resulted in a conference
+        paper presentation.
+        <br>
+        <em>
+          “Different Roles of Microglia in Alzheimer’s Disease,” International Conference on
+          Biological Engineering and Medical Science (ICBioMed), 2023.
+        </em>
+      </li>
 
-    <li>
-      Past research experience in engineering- and computation-oriented projects,
-      primarily involving dry-lab and data-driven analysis. This work contributed to my
-      technical foundation and exposure to quantitative approaches, though my current
-      academic interests have since shifted toward neuroscience and neuron-centered
-      biological questions.
-    </li>
-  </ul>
+      <li>
+        Past research experience in engineering- and computation-oriented projects,
+        primarily involving dry-lab and data-driven analysis. This work contributed to my
+        technical foundation and exposure to quantitative approaches, though my current
+        academic interests have since shifted toward neuroscience and neuron-centered
+        biological questions.
+      </li>
+    </ul>
 
-  <!-- Activities -->
-  <h2 id="activities">Activities</h2>
+    <h2 id="activities">Activities</h2>
 
-  <ul>
-    <li>
-      <strong>Music Performance:</strong>
-      Classically trained cellist with long-term ensemble experience, currently performing
-      with the UC Davis Symphony Orchestra. Music has been a sustained part of my education
-      and informs my understanding of human expression, discipline, and collaboration.
-    </li>
+    <ul>
+      <li>
+        <strong>Music Performance:</strong>
+        Classically trained cellist with long-term ensemble experience, currently performing
+        with the UC Davis Symphony Orchestra. Music has been a sustained part of my education
+        and informs my understanding of human expression, discipline, and collaboration.
+      </li>
 
-    <li>
-      <strong>Athletics & Leadership:</strong>
-      Founder of the ITF Taekwon-Do club at UC Davis, responsible for organizing regular
-      training sessions and coordinating club activities. Long-term martial arts training
-      has emphasized consistency, self-regulation, and instructional responsibility.
-    </li>
+      <li>
+        <strong>Athletics &amp; Leadership:</strong>
+        Founder of the ITF Taekwon-Do club at UC Davis, responsible for organizing regular
+        training sessions and coordinating club activities. Long-term martial arts training
+        has emphasized consistency, self-regulation, and instructional responsibility.
+      </li>
 
-    <li>
-      <strong>Service & Care:</strong>
-      Volunteer with YoloCares, providing companionship and psychosocial support for patients
-      in end-of-life care. This experience has strengthened my patient-centered perspective
-      and reinforced my motivation to pursue medicine.
-    </li>
-  </ul>
+      <li>
+        <strong>Service &amp; Care:</strong>
+        Volunteer with YoloCares, providing companionship and psychosocial support for patients
+        in end-of-life care. This experience has strengthened my patient-centered perspective
+        and reinforced my motivation to pursue medicine.
+      </li>
+    </ul>
 
-  <!-- Contact -->
-  <h2 id="contact">Contact</h2>
+    <h2 id="contact">Contact</h2>
 
-  <p>
-    Email: <a href="mailto:yfnwang@ucdavis.edu">yfnwang@ucdavis.edu</a>
-  </p>
-
+    <p>
+      Email: <a href="mailto:yfnwang@ucdavis.edu">yfnwang@ucdavis.edu</a>
+    </p>
+  </div>
 </body>
 </html>
